@@ -62,26 +62,67 @@ public class Tabulation {
         // is the integer number that will stop the sequence.
         for(int intermediateAmount = 1; intermediateAmount < amount + 1; intermediateAmount++) {
 
+            System.out.printf("%n%nNow discovering coin change for intermediate amount %d%n", intermediateAmount);
+
             int minimumNumberOfCoins = Integer.MAX_VALUE;
 
-            // Local variables must be final or effectively final
-            // when referenced from a Lambda expression.
-            final int finalIntermediateAmount = intermediateAmount;
+            int coinIndex = 0;
+           
             // for every coin
-            Arrays.stream(coins).forEach(coin -> {
+            while(coinIndex < coins.length) {
 
                 // Find the remaining amount of the difference
                 // between the intermediate amount and this coin
-                int remainingAmountDifference = finalIntermediateAmount - coin;
+                int coin = coins[coinIndex];
+                int remainingAmountDifference = intermediateAmount - coin;
 
+                System.out.printf("%nNow processing coin value of %d%n", coin);
                 System.out.printf("analyze this intermediate amount minus this coin value to get the remaining amount difference%n");
-                System.out.printf("values %d - %d = %d%n", finalIntermediateAmount, coin, remainingAmountDifference);
+                System.out.printf("values %d - %d = %d%n", intermediateAmount, coin, remainingAmountDifference);
 
-            });
+                // If this coin pushed the value of remaining amount difference,
+                // then this was one coin too many.
+                // The previous coin was the biggest coin value to make change,
+                // for this intermediate amount.
+                if (remainingAmountDifference < 0) {
+                    System.out.printf("a negative remaining amount difference is the stop condition of coin processing%n"); 
+                    break;
+                }
+
+                // Otherwise, make note of the minimum number of coins
+                // for this remaining amount difference plus one more count for this coin.
+                System.out.printf("Record updated minimum number of coins%n");
+                System.out.printf("Before, the minimum number of coins is %d%n", minimumNumberOfCoins);
+                System.out.printf("The dynamic programming value is stored according to the remaining amount difference%n");
+                System.out.printf("The remaining amount difference is %d%n", remainingAmountDifference);
+                System.out.printf("The dynamic programming value of %d is stored at index %d%n", dp[remainingAmountDifference], remainingAmountDifference);
+                System.out.printf("The value of 1 is added to this dp value to account for this coin being processed%n");
+                System.out.printf("Then this value is compared to the current minimum number of coins to find the updated minimum number of coins%n");
+
+                minimumNumberOfCoins = Math.min(minimumNumberOfCoins, dp[remainingAmountDifference] + 1);
+
+                System.out.printf("After, the minimum number of coins is %d%n", minimumNumberOfCoins);
+
+                coinIndex++;
+            }
+
+            // Now, store the minimumNumberOfCoins by the intermedidate amount
+            System.out.printf("The dynamically programmed number of coins for intermediate amount %d is %d%n", intermediateAmount, minimumNumberOfCoins);
+            dp[intermediateAmount] = minimumNumberOfCoins;
 
         }
 
-        return -1;
+        // Final decision on what to return.
+        // If the number of coins for the original amount in dp
+        // is less than Integer.MAX_VALUE,
+        // then return the value at index, amount, of array dp.
+        // Otherwise, return -1;
+        if (dp[amount] < Integer.MAX_VALUE) {
+            System.out.printf("%n%nThe dynamically programmed number of coins for amount %d is %d%n", amount, dp[amount]);
+            return dp[amount];
+        } else {
+            return -1;
+        }
     }
 
 }
