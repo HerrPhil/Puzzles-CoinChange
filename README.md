@@ -54,22 +54,22 @@ That coin face value determines what the remaining amount difference will be.
 
 >Hello Coin Change Tabulation Solution #1
 
-  finding the solution for amount = 5
+finding the solution for amount = 5  
 
 
-  Now discovering coin change for intermediate amount 1
+Now discovering coin change for intermediate amount 1  
 
-  Now processing coin value of 1
-  analyze this intermediate amount minus this coin value to get the remaining amount difference
-  values 1 - 1 = 0
-  Record updated minimum number of coins
-  Before, the minimum number of coins is 2147483647
-  The dynamic programming value is stored according to the remaining amount difference
-  The remaining amount difference is 0
-  The dynamic programming value of 0 is stored at index 0
-  The value of 1 is added to this dp value to account for this coin being processed
-  Then this value is compared to the current minimum number of coins to find the updated minimum number of coins
-  After, the minimum number of coins is 1
+Now processing coin value of 1  
+analyze this intermediate amount minus this coin value to get the remaining amount difference  
+values 1 - 1 = 0  
+Record updated minimum number of coins  
+Before, the minimum number of coins is 2147483647  
+The dynamic programming value is stored according to the remaining amount difference  
+The remaining amount difference is 0  
+The dynamic programming value of 0 is stored at index 0  
+The value of 1 is added to this dp value to account for this coin being processed  
+Then this value is compared to the current minimum number of coins to find the updated minimum number of coins  
+After, the minimum number of coins is 1  
 
   Now processing coin value of 2
   analyze this intermediate amount minus this coin value to get the remaining amount difference
