@@ -41,3 +41,190 @@ I will trace through the tabulation solution first.
 It is not gelling in my mind how this works.
 
 I am a visual learner; I need to see the DP values build up to understand what is happening.
+
+
+Here is the logger output of the solution.
+
+I observe now that at every intermediate amount, the solution checks for a previous solution.
+
+The previous solution will be based on the face value of the coin currently being utilized.
+
+That coin face value determines what the remaining amount difference will be.
+
+
+>Hello Coin Change Tabulation Solution #1
+
+  finding the solution for amount = 5
+
+
+  Now discovering coin change for intermediate amount 1
+
+  Now processing coin value of 1
+  analyze this intermediate amount minus this coin value to get the remaining amount difference
+  values 1 - 1 = 0
+  Record updated minimum number of coins
+  Before, the minimum number of coins is 2147483647
+  The dynamic programming value is stored according to the remaining amount difference
+  The remaining amount difference is 0
+  The dynamic programming value of 0 is stored at index 0
+  The value of 1 is added to this dp value to account for this coin being processed
+  Then this value is compared to the current minimum number of coins to find the updated minimum number of coins
+  After, the minimum number of coins is 1
+
+  Now processing coin value of 2
+  analyze this intermediate amount minus this coin value to get the remaining amount difference
+  values 1 - 2 = -1
+  a negative remaining amount difference is the stop condition of coin processing
+  The dynamically programmed number of coins for intermediate amount 1 is 1
+
+
+  Now discovering coin change for intermediate amount 2
+
+  Now processing coin value of 1
+  analyze this intermediate amount minus this coin value to get the remaining amount difference
+  values 2 - 1 = 1
+  Record updated minimum number of coins
+  Before, the minimum number of coins is 2147483647
+  The dynamic programming value is stored according to the remaining amount difference
+  The remaining amount difference is 1
+  The dynamic programming value of 1 is stored at index 1
+  The value of 1 is added to this dp value to account for this coin being processed
+  Then this value is compared to the current minimum number of coins to find the updated minimum number of coins
+  After, the minimum number of coins is 2
+
+  Now processing coin value of 2
+  analyze this intermediate amount minus this coin value to get the remaining amount difference
+  values 2 - 2 = 0
+  Record updated minimum number of coins
+  Before, the minimum number of coins is 2
+  The dynamic programming value is stored according to the remaining amount difference
+  The remaining amount difference is 0
+  The dynamic programming value of 0 is stored at index 0
+  The value of 1 is added to this dp value to account for this coin being processed
+  Then this value is compared to the current minimum number of coins to find the updated minimum number of coins
+  After, the minimum number of coins is 1
+
+  Now processing coin value of 4
+  analyze this intermediate amount minus this coin value to get the remaining amount difference
+  values 2 - 4 = -2
+  a negative remaining amount difference is the stop condition of coin processing
+  The dynamically programmed number of coins for intermediate amount 2 is 1
+
+
+  Now discovering coin change for intermediate amount 3
+
+  Now processing coin value of 1
+  analyze this intermediate amount minus this coin value to get the remaining amount difference
+  values 3 - 1 = 2
+  Record updated minimum number of coins
+  Before, the minimum number of coins is 2147483647
+  The dynamic programming value is stored according to the remaining amount difference
+  The remaining amount difference is 2
+  The dynamic programming value of 1 is stored at index 2
+  The value of 1 is added to this dp value to account for this coin being processed
+  Then this value is compared to the current minimum number of coins to find the updated minimum number of coins
+  After, the minimum number of coins is 2
+
+  Now processing coin value of 2
+  analyze this intermediate amount minus this coin value to get the remaining amount difference
+  values 3 - 2 = 1
+  Record updated minimum number of coins
+  Before, the minimum number of coins is 2
+  The dynamic programming value is stored according to the remaining amount difference
+  The remaining amount difference is 1
+  The dynamic programming value of 1 is stored at index 1
+  The value of 1 is added to this dp value to account for this coin being processed
+  Then this value is compared to the current minimum number of coins to find the updated minimum number of coins
+  After, the minimum number of coins is 2
+
+  Now processing coin value of 4
+  analyze this intermediate amount minus this coin value to get the remaining amount difference
+  values 3 - 4 = -1
+  a negative remaining amount difference is the stop condition of coin processing
+  The dynamically programmed number of coins for intermediate amount 3 is 2
+
+
+  Now discovering coin change for intermediate amount 4
+
+  Now processing coin value of 1
+  analyze this intermediate amount minus this coin value to get the remaining amount difference
+  values 4 - 1 = 3
+  Record updated minimum number of coins
+  Before, the minimum number of coins is 2147483647
+  The dynamic programming value is stored according to the remaining amount difference
+  The remaining amount difference is 3
+  The dynamic programming value of 2 is stored at index 3
+  The value of 1 is added to this dp value to account for this coin being processed
+  Then this value is compared to the current minimum number of coins to find the updated minimum number of coins
+  After, the minimum number of coins is 3
+
+  Now processing coin value of 2
+  analyze this intermediate amount minus this coin value to get the remaining amount difference
+  values 4 - 2 = 2
+  Record updated minimum number of coins
+  Before, the minimum number of coins is 3
+  The dynamic programming value is stored according to the remaining amount difference
+  The remaining amount difference is 2
+  The dynamic programming value of 1 is stored at index 2
+  The value of 1 is added to this dp value to account for this coin being processed
+  Then this value is compared to the current minimum number of coins to find the updated minimum number of coins
+  After, the minimum number of coins is 2
+
+  Now processing coin value of 4
+  analyze this intermediate amount minus this coin value to get the remaining amount difference
+  values 4 - 4 = 0
+  Record updated minimum number of coins
+  Before, the minimum number of coins is 2
+  The dynamic programming value is stored according to the remaining amount difference
+  The remaining amount difference is 0
+  The dynamic programming value of 0 is stored at index 0
+  The value of 1 is added to this dp value to account for this coin being processed
+  Then this value is compared to the current minimum number of coins to find the updated minimum number of coins
+  After, the minimum number of coins is 1
+  The dynamically programmed number of coins for intermediate amount 4 is 1
+
+
+  Now discovering coin change for intermediate amount 5
+
+  Now processing coin value of 1
+  analyze this intermediate amount minus this coin value to get the remaining amount difference
+  values 5 - 1 = 4
+  Record updated minimum number of coins
+  Before, the minimum number of coins is 2147483647
+  The dynamic programming value is stored according to the remaining amount difference
+  The remaining amount difference is 4
+  The dynamic programming value of 1 is stored at index 4
+  The value of 1 is added to this dp value to account for this coin being processed
+  Then this value is compared to the current minimum number of coins to find the updated minimum number of coins
+  After, the minimum number of coins is 2
+
+  Now processing coin value of 2
+  analyze this intermediate amount minus this coin value to get the remaining amount difference
+  values 5 - 2 = 3
+  Record updated minimum number of coins
+  Before, the minimum number of coins is 2
+  The dynamic programming value is stored according to the remaining amount difference
+  The remaining amount difference is 3
+  The dynamic programming value of 2 is stored at index 3
+  The value of 1 is added to this dp value to account for this coin being processed
+  Then this value is compared to the current minimum number of coins to find the updated minimum number of coins
+  After, the minimum number of coins is 2
+
+  Now processing coin value of 4
+  analyze this intermediate amount minus this coin value to get the remaining amount difference
+  values 5 - 4 = 1
+  Record updated minimum number of coins
+  Before, the minimum number of coins is 2
+  The dynamic programming value is stored according to the remaining amount difference
+  The remaining amount difference is 1
+  The dynamic programming value of 1 is stored at index 1
+  The value of 1 is added to this dp value to account for this coin being processed
+  Then this value is compared to the current minimum number of coins to find the updated minimum number of coins
+  After, the minimum number of coins is 2
+  The dynamically programmed number of coins for intermediate amount 5 is 2
+
+
+  The dynamically programmed number of coins for amount 5 is 2
+  The result = 2
+
+Next, I will work on the memoization solution and comprehend its techniques.
